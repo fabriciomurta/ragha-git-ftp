@@ -42,6 +42,10 @@ stdin.on('error', console.error);"
 
 latest="$(echo "${result}" | node -e "${nodescp}")" || fail "Unable parse latest version from NuGet API Json response."
 
+# REMOVEME REMOVEME REMOVEME
+# Checks a prelrease version string
+latest="2.3.0-preview"
+
 if [ -z "${latest}" ]; then
  fail "Unable to extract latest version number from NuGet website."
 elif ! echo "${latest}" | egrep -q '^([0-9]+\.){2}[0-9]+(-.*)?$'; then
